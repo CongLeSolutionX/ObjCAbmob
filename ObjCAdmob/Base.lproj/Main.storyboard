@@ -23,11 +23,10 @@
                                     <constraint firstAttribute="height" constant="50" id="rTU-I7-egd"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjj-VW-R4B">
-                                <rect key="frame" x="20" y="20" width="374" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjj-VW-R4B">
+                                <rect key="frame" x="20" y="20" width="374" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show ad"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show interstitial ad"/>
                                 <connections>
                                     <action selector="showAd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JDv-be-CCZ"/>
                                 </connections>
@@ -37,8 +36,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eOQ-KP-2ko" secondAttribute="bottom" id="85T-rZ-BYa"/>
+                            <constraint firstItem="Vjj-VW-R4B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="N0J-fx-4Fo"/>
                             <constraint firstItem="eOQ-KP-2ko" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eDY-61-cPu"/>
+                            <constraint firstItem="Vjj-VW-R4B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="rlz-q3-sw4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eOQ-KP-2ko" secondAttribute="trailing" id="s0s-KO-GOq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjj-VW-R4B" secondAttribute="trailing" constant="20" id="sL2-44-ALh"/>
                         </constraints>
                     </view>
                     <connections>
