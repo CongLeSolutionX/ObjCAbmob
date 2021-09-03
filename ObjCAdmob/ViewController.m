@@ -39,6 +39,12 @@
 /// Tells the delegate an ad request loaded an ad
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   self.banner.hidden = NO; // show the banner ad if loading an ad is successful
+ 
+  // animating the banner ad with fading in effect
+  bannerView.alpha = 0;
+  [UIView animateWithDuration:2.0 animations:^{
+    bannerView.alpha = 1;
+  }];
   NSLog(@"adViewDidReceiveAd");
 }
 
