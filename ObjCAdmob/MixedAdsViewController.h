@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface ViewController : UIViewController {
+@interface MixedAdsViewController : UIViewController {
   int score;
 }
 

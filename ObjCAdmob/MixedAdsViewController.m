@@ -5,7 +5,7 @@
 //  Created by Cong Le on 9/2/21.
 //
 
-#import "ViewController.h"
+#import "MixedAdsViewController.h"
 
 #pragma mark - CONSTANTS -
 // Replace these Test Ad IDs when deploy the app into production flow.
@@ -16,19 +16,19 @@ static NSString *const RewardedTestAdUnit = @"ca-app-pub-3940256099942544/171248
 
 #pragma mark - Extension -
 // Extension of ViewController and conform to protocol GADBannerViewDelegate
-@interface ViewController() <GADBannerViewDelegate>
+@interface MixedAdsViewController() <GADBannerViewDelegate>
 
 @end
 
 // Extension of ViewController and conform to protocol GADFullScreenContentDelegate
-@interface ViewController () <GADFullScreenContentDelegate>
+@interface MixedAdsViewController () <GADFullScreenContentDelegate>
 
 @property (strong, nonatomic) GADRewardedAd *rewardedAd;
 
 @end
 
 #pragma mark - Implementation of View Controller -
-@implementation ViewController
+@implementation MixedAdsViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -49,6 +49,7 @@ static NSString *const RewardedTestAdUnit = @"ca-app-pub-3940256099942544/171248
   [self createInterstitialAd];
   
   [self createRewardedVideoAd];
+  
 }
 #pragma mark - GADBannerViewDelegate -
 /// Tells the delegate an ad request loaded an ad
