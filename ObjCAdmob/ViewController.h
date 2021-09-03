@@ -12,6 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet GADBannerView *banner;
 
+@property (strong, nonatomic) GADInterstitialAd *interstitialAd;
+
+- (IBAction)showAd:(id)sender;
+
 
 @end
 
