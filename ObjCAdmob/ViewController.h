@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface ViewController : UIViewController <GADBannerViewDelegate, GADFullScreenContentDelegate> {
+@interface ViewController : UIViewController {
   int score;
 }
 
@@ -18,7 +18,6 @@
 
 - (IBAction)showInterstitialAd:(id)sender;
 
-@property (strong, nonatomic) GADRewardedAd *rewardedAd;
 
 - (IBAction)showRewardedVideoAd:(id)sender;
 

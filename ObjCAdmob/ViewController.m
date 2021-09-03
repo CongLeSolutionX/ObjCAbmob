@@ -7,10 +7,27 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+#pragma mark - CONSTANTS -
+// Replace these Test Ad IDs when deploy the app into production flow.
+// Production IDs are all in this dashboard: https://apps.admob.com/v2/apps/3097473147/adunits/list?pli=1
+static NSString *const BannerTestAdUnit = @"ca-app-pub-3940256099942544/2934735716";
+static NSString *const InterstitialTestAdUnit = @"ca-app-pub-3940256099942544/4411468910";
+static NSString *const RewardedTestAdUnit = @"ca-app-pub-3940256099942544/1712485313";
+
+#pragma mark - Extension -
+// Extension of ViewController and conform to protocol GADBannerViewDelegate
+@interface ViewController() <GADBannerViewDelegate>
 
 @end
 
+// Extension of ViewController and conform to protocol GADFullScreenContentDelegate
+@interface ViewController () <GADFullScreenContentDelegate>
+
+@property (strong, nonatomic) GADRewardedAd *rewardedAd;
+
+@end
+
+#pragma mark - Implementation of View Controller -
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -18,9 +35,7 @@
   self.view.backgroundColor = UIColor.systemBrownColor;
   
   //MARK: - Banner ad setup -
-  // use Test Ad ID for now. This Id should be replace by your production Ad Unit Id located at
-  // https://apps.admob.com/v2/apps/3097473147/adunits/list?pli=1
-  self.banner.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+  self.banner.adUnitID = BannerTestAdUnit;
   
   self.banner.rootViewController = self;
   self.banner.adSize = kGADAdSizeBanner; // set the ad banner size
@@ -45,7 +60,7 @@
   [UIView animateWithDuration:1.0 animations:^{
     bannerView.alpha = 1;
   }];
-  NSLog(@"adViewDidReceiveAd");
+  NSLog(@"ad View Did Receive Banner Ad");
 }
 
 /// Tells the delegate an ad request failed
@@ -70,7 +85,7 @@
 -(void)createInterstitialAd {
   /// Resource: https://developers.google.com/admob/ios/interstitial
   GADRequest *request = [GADRequest request];
-  [GADInterstitialAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910" // need change this test ID to production ID
+  [GADInterstitialAd loadWithAdUnitID:InterstitialTestAdUnit
                               request: request
                     completionHandler:^(GADInterstitialAd *ad, NSError *error) {
     if (error) {
@@ -99,7 +114,7 @@
 -(void)createRewardedVideoAd {
   /// Resource: https://developers.google.com/admob/ios/rewarded
   GADRequest *request = [GADRequest request];
-  [GADRewardedAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/1712485313"
+  [GADRewardedAd loadWithAdUnitID:RewardedTestAdUnit
                           request:request
                 completionHandler:^(GADRewardedAd *ad, NSError *error) {
     if (error) {
