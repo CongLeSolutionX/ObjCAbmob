@@ -8,13 +8,17 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface ViewController : UIViewController <GADBannerViewDelegate>
+@interface ViewController : UIViewController <GADBannerViewDelegate, GADFullScreenContentDelegate>
 
 @property (weak, nonatomic) IBOutlet GADBannerView *banner;
 
 @property (strong, nonatomic) GADInterstitialAd *interstitialAd;
 
-- (IBAction)showAd:(id)sender;
+- (IBAction)showInterstitialAd:(id)sender;
+
+@property (strong, nonatomic) GADRewardedAd *rewardedAd;
+
+- (IBAction)showRewardedVideoAd:(id)sender;
 
 
 @end

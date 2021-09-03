@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.view.backgroundColor = UIColor.systemRedColor;
+  self.view.backgroundColor = UIColor.systemBrownColor;
   
   //MARK: - Banner ad setup -
   // use Test Ad ID for now. This Id should be replace by your production Ad Unit Id located at
@@ -31,15 +31,15 @@
   self.banner.hidden = YES; // hide the banner ad by default
   
   
-  //MARK: - Interstitial ad setup -
-  // By default, the interstitial ad only load once per request
   [self createInterstitialAd];
+  
+  [self createRewardedVideoAd];
 }
-// MARK: - GADBannerViewDelegate 
+// MARK: - GADBannerViewDelegate -
 /// Tells the delegate an ad request loaded an ad
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   self.banner.hidden = NO; // show the banner ad if loading an ad is successful
- 
+  
   // animating the banner ad with fading in effect
   bannerView.alpha = 0;
   [UIView animateWithDuration:2.0 animations:^{
@@ -54,22 +54,23 @@
   NSLog(@"bannerView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
 }
 
-// MARK: - Helper methods for Interstitial ad
-- (IBAction)showAd:(id)sender {
+// MARK: - Helper methods for Interstitial ad -
+- (IBAction)showInterstitialAd:(id)sender {
   if (self.interstitialAd) {
     [self.interstitialAd presentFromRootViewController:self];
     
     [self createInterstitialAd]; // load an interstitial ad whenever the button is clicked
     
   } else {
-    NSLog(@"Ad wasn't ready");
+    NSLog(@"Interstitial Ad wasn't ready");
   }
 }
 
+/// By default, the interstitial ad only load once per request
 -(void)createInterstitialAd {
   /// Resource: https://developers.google.com/admob/ios/interstitial
   GADRequest *request = [GADRequest request];
-  [GADInterstitialAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910"
+  [GADInterstitialAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/4411468910" // need change this test ID to production ID
                               request: request
                     completionHandler:^(GADInterstitialAd *ad, NSError *error) {
     if (error) {
@@ -80,4 +81,53 @@
   }];
 }
 
+// MARK: - Helper methods for Rewarded Video Ad -
+- (IBAction)showRewardedVideoAd:(id)sender {
+  
+  if (self.rewardedAd) {
+    [self.rewardedAd presentFromRootViewController:self
+                          userDidEarnRewardHandler:^{
+      GADAdReward *reward = self.rewardedAd.adReward;
+      // TODO: Reward the user
+    }];
+  } else {
+    NSLog(@"Rewarded Video Ad wasn't ready");
+  }
+}
+
+/// By default, the Rewarded Video  ad only load once per request
+-(void)createRewardedVideoAd {
+  /// Resource: https://developers.google.com/admob/ios/rewarded
+  GADRequest *request = [GADRequest request];
+  [GADRewardedAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/1712485313"
+                          request:request
+                completionHandler:^(GADRewardedAd *ad, NSError *error) {
+    if (error) {
+      NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
+      return;
+    }
+    self.rewardedAd = ad;
+    
+    self.rewardedAd.fullScreenContentDelegate = self;
+  }];
+}
+
+// MARK: - GADFullScreenContentDelegate - Rewarded Video Ad Delegate methods
+/// Tells the delegate that the ad failed to present full screen content.
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
+didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
+  NSLog(@"Rewarded Video Ad did fail to present full screen content.");
+}
+
+/// Tells the delegate that the ad presented full screen content.
+- (void)adDidPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"Rewarded Video Ad did present full screen content.");
+  
+}
+
+/// Tells the delegate that the ad dismissed full screen content.
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  [self createRewardedVideoAd]; // pre-load an Rewarded Video Ad
+  NSLog(@"Ad did dismiss full screen content.");
+}
 @end

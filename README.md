@@ -8,7 +8,7 @@ A demo app shows how to integrate Google AdMob in Objective-C
 2. Create new app in Google Abmob dashboard and have App ID ready for next steps
 The App ID should have a format as ca-app-pub-7123458538882040~3097412345
 
-3. Create a banner ad and obtain the Ad Unit Id, which is use for production later.
+3. Create a **Banner** ad and obtain the Ad Unit Id, which is use for production later.
 
 4. Create a new objective-C project on XCode
 
@@ -18,13 +18,13 @@ The App ID should have a format as ca-app-pub-7123458538882040~3097412345
 
 Note: Add the `-ObjC` linker flag to **Other Linker Flags** in your project's build settings
 
-7. Create a UIView on storyboard and assign it as `GADBannerView` class. 
+7. Create a **UIView** on storyboard and assign it as `GADBannerView` class. 
 
 8. Add `GoogleMobileAds.xcframework` into **Link Binary With Libraries section** of the project target.
  
 9. Update your **Info.plist** in XCode project via using the [documentation](https://developers.google.com/admob/ios/quick-start#update_your_infoplist)
 
-10. Follow the instruction to implement Banner ad in [this guide](https://developers.google.com/admob/ios/banner). Conform **ViewController.h** to `GADBannerViewDelegate` as following: 
+10. Follow the instruction to implement **Banner** ad in [this guide](https://developers.google.com/admob/ios/banner). Conform **ViewController.h** to `GADBannerViewDelegate` as following: 
 
 ```swift
 @interface ViewController : UIViewController <GADBannerViewDelegate>
@@ -69,11 +69,11 @@ Note: Add the `-ObjC` linker flag to **Other Linker Flags** in your project's bu
 
 1. Use the current setup made for Banner app
 
-2. Create an interstitial ad unit with ID for you App on the Google Admob dashboard. We will use its ID for production later.
+2. Create an **Interstitial** ad unit with ID for you App on the Google Admob dashboard. We will use its ID for production later.
 
 3. Follow the instruction to implement interstitial ad in [this guide](https://developers.google.com/admob/ios/interstitial).
 
-4. Create a **UIButton** on the storyboard and connect to the **ViewController.h**
+4. Create a **UIButton** named **Show Interstitial Ad** on the storyboard and connect to the **ViewController.h**
 
 5. Add the following methods to **ViewController.m**: 
 
@@ -110,3 +110,71 @@ Note: Add the `-ObjC` linker flag to **Other Linker Flags** in your project's bu
 [self createInterstitialAd];
 ```
 
+## Steps to integrate Video ad: 
+
+1. Use the current project with all setups for Google AdMob
+
+2. Create an **Rewarded** ad unit with ID for you App on the Google Admob dashboard. We will use its ID for production later.
+
+3. Follow the instruction to implement Rewarded Video ad in [this guide](https://developers.google.com/admob/ios/rewarded).
+
+4. Create a **UIButton** named **Show Rewarded Video Ad** on the storyboard and connect to the **ViewController.h**
+
+5. Add the following methods to **ViewController.m**: 
+
+```swift 
+- (IBAction)showRewardedVideoAd:(id)sender {
+  
+  if (self.rewardedAd) {
+    [self.rewardedAd presentFromRootViewController:self
+                          userDidEarnRewardHandler:^{
+      GADAdReward *reward = self.rewardedAd.adReward;
+      // TODO: Reward the user
+    }];
+  } else {
+    NSLog(@"Rewarded Video Ad wasn't ready");
+  }
+}
+
+/// By default, the Rewarded Video  ad only load once per request
+-(void)createRewardedVideoAd {
+  /// Resource: https://developers.google.com/admob/ios/rewarded
+  GADRequest *request = [GADRequest request];
+  [GADRewardedAd loadWithAdUnitID:@"ca-app-pub-3940256099942544/1712485313"
+                          request:request
+                completionHandler:^(GADRewardedAd *ad, NSError *error) {
+    if (error) {
+      NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
+      return;
+    }
+    self.rewardedAd = ad;
+    
+    self.rewardedAd.fullScreenContentDelegate = self;
+  }];
+}
+
+// MARK: - GADFullScreenContentDelegate - Rewarded Video Ad Delegate methods
+/// Tells the delegate that the ad failed to present full screen content.
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
+didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
+  NSLog(@"Rewarded Video Ad did fail to present full screen content.");
+}
+
+/// Tells the delegate that the ad presented full screen content.
+- (void)adDidPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  NSLog(@"Rewarded Video Ad did present full screen content.");
+  
+}
+
+/// Tells the delegate that the ad dismissed full screen content.
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+  [self createRewardedVideoAd]; // pre-load an Rewarded Video Ad
+  NSLog(@"Ad did dismiss full screen content.");
+}
+```
+
+6. Call the following function in `viewDidLoad()` in **ViewController.m**
+
+```swift
+[self createRewardedVideoAd];
+```
