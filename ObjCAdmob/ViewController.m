@@ -35,7 +35,7 @@
   
   [self createRewardedVideoAd];
 }
-// MARK: - GADBannerViewDelegate -
+#pragma mark - GADBannerViewDelegate -
 /// Tells the delegate an ad request loaded an ad
 - (void)bannerViewDidReceiveAd:(GADBannerView *)bannerView {
   self.banner.hidden = NO; // show the banner ad if loading an ad is successful
@@ -54,7 +54,7 @@
   NSLog(@"bannerView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
 }
 
-// MARK: - Helper methods for Interstitial ad -
+#pragma mark - Helper methods for Interstitial ad -
 - (IBAction)showInterstitialAd:(id)sender {
   if (self.interstitialAd) {
     [self.interstitialAd presentFromRootViewController:self];
@@ -81,7 +81,7 @@
   }];
 }
 
-// MARK: - Helper methods for Rewarded Video Ad -
+#pragma mark - Helper methods for Rewarded Video Ad -
 - (IBAction)showRewardedVideoAd:(id)sender {
   if (self.rewardedAd) {
     [self.rewardedAd presentFromRootViewController:self
@@ -112,7 +112,7 @@
   }];
 }
 
-// MARK: - GADFullScreenContentDelegate - Rewarded Video Ad Delegate methods
+#pragma mark - GADFullScreenContentDelegate - Rewarded Video Ad Delegate methods
 /// Tells the delegate that the ad failed to present full screen content.
 - (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad
 didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
