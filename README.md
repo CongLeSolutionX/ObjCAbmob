@@ -178,3 +178,30 @@ didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
 ```swift
 [self createRewardedVideoAd];
 ```
+
+7. Create a **UILabel** named **Rewarded label** on storyboard and connect to **ViewController.h**
+
+8. Update **ViewController.h** via adding a new property score as following: 
+
+```swift 
+@interface ViewController : UIViewController <GADBannerViewDelegate, GADFullScreenContentDelegate> {
+  int score;
+}
+```
+
+9. Update the block in `showRewardedVideoAd()` to handle the callback and update the **Rewarded label** via adding 100 for each time watch the reward video.
+
+```swift 
+- (IBAction)showRewardedVideoAd:(id)sender {
+  
+  if (self.rewardedAd) {
+    [self.rewardedAd presentFromRootViewController:self
+                          userDidEarnRewardHandler:^{
+      self->score += 100;
+      self.rewardLabel.text = [NSString stringWithFormat:@"%i", self->score];
+    }];
+  } else {
+    NSLog(@"Rewarded Video Ad wasn't ready");
+  }
+}
+```

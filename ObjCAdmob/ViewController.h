@@ -8,7 +8,9 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface ViewController : UIViewController <GADBannerViewDelegate, GADFullScreenContentDelegate>
+@interface ViewController : UIViewController <GADBannerViewDelegate, GADFullScreenContentDelegate> {
+  int score;
+}
 
 @property (weak, nonatomic) IBOutlet GADBannerView *banner;
 
@@ -20,6 +22,7 @@
 
 - (IBAction)showRewardedVideoAd:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *rewardLabel;
 
 @end
 

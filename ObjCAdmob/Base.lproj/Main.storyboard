@@ -39,15 +39,27 @@
                                     <action selector="showRewardedVideoAd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l6t-TB-8Ru"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eF-wW-LKJ">
+                                <rect key="frame" x="20" y="122" width="374" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="E3w-fM-0vB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eOQ-KP-2ko" secondAttribute="bottom" id="85T-rZ-BYa"/>
                             <constraint firstItem="Hp9-xW-zow" firstAttribute="top" secondItem="Vjj-VW-R4B" secondAttribute="bottom" constant="20" id="KVR-J5-vyi"/>
+                            <constraint firstItem="4eF-wW-LKJ" firstAttribute="top" secondItem="Hp9-xW-zow" secondAttribute="bottom" constant="20" id="Mi0-WM-Ye9"/>
                             <constraint firstItem="Vjj-VW-R4B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="N0J-fx-4Fo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4eF-wW-LKJ" secondAttribute="trailing" constant="20" id="Z2g-3A-edO"/>
                             <constraint firstItem="eOQ-KP-2ko" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eDY-61-cPu"/>
                             <constraint firstItem="Hp9-xW-zow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="m6F-Uu-8K3"/>
+                            <constraint firstItem="4eF-wW-LKJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qAv-KF-ZPq"/>
                             <constraint firstItem="Vjj-VW-R4B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="rlz-q3-sw4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eOQ-KP-2ko" secondAttribute="trailing" id="s0s-KO-GOq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjj-VW-R4B" secondAttribute="trailing" constant="20" id="sL2-44-ALh"/>
@@ -56,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="banner" destination="eOQ-KP-2ko" id="SjE-oG-BxQ"/>
+                        <outlet property="rewardLabel" destination="4eF-wW-LKJ" id="fdK-fY-AjX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

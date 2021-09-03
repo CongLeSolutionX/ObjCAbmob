@@ -42,7 +42,7 @@
   
   // animating the banner ad with fading in effect
   bannerView.alpha = 0;
-  [UIView animateWithDuration:2.0 animations:^{
+  [UIView animateWithDuration:1.0 animations:^{
     bannerView.alpha = 1;
   }];
   NSLog(@"adViewDidReceiveAd");
@@ -83,12 +83,11 @@
 
 // MARK: - Helper methods for Rewarded Video Ad -
 - (IBAction)showRewardedVideoAd:(id)sender {
-  
   if (self.rewardedAd) {
     [self.rewardedAd presentFromRootViewController:self
                           userDidEarnRewardHandler:^{
-      GADAdReward *reward = self.rewardedAd.adReward;
-      // TODO: Reward the user
+      self->score += 100;
+      self.rewardLabel.text = [NSString stringWithFormat:@"%i", self->score];
     }];
   } else {
     NSLog(@"Rewarded Video Ad wasn't ready");
@@ -96,6 +95,7 @@
 }
 
 /// By default, the Rewarded Video  ad only load once per request
+/// Note: Loading Rewarded Video ad might take a bit long depend on internet signal
 -(void)createRewardedVideoAd {
   /// Resource: https://developers.google.com/admob/ios/rewarded
   GADRequest *request = [GADRequest request];
@@ -130,4 +130,5 @@ didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
   [self createRewardedVideoAd]; // pre-load an Rewarded Video Ad
   NSLog(@"Ad did dismiss full screen content.");
 }
+
 @end
