@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SecondViewController.h"
+#import "NativeAdvanced.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
-@property (strong, nonatomic) SecondViewController *vc2; // Add a view controller programmatically
+@property (strong, nonatomic) NativeAdvanced *nativeAdvancedViewController;
 
 @end
 

@@ -17,12 +17,6 @@
   // create UIWindow with the same size as main screen
   self.window = [[UIWindow alloc] initWithFrame: UIScreen.mainScreen.bounds];
   
-  //check if the 2nd viewcontroller eixsts, otherwise create it
-  if(self.vc2 == nil) {
-    SecondViewController *vc2 = [[SecondViewController alloc] init];
-    self.vc2 = vc2;
-  }
-  
   // create storyboard.
   // Default story board will be named as Main.storyboard
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -32,16 +26,23 @@
   // Interface Builder -> Identitiy Inspector -> Storyboard ID
   MixedAdsViewController *mixedAdsViewController = [storyboard instantiateViewControllerWithIdentifier: @"MixedAdsViewController"];
   
+  
+  //check if the 2nd viewcontroller eixsts, otherwise create it
+  if(self.nativeAdvancedViewController == nil) {
+    NativeAdvanced *nativeAdvancedViewVC = [storyboard instantiateViewControllerWithIdentifier:@"NativeAdvancedViewController"];
+    self.nativeAdvancedViewController = nativeAdvancedViewVC;
+  }
+  
   //check if the tab bar viewcontroller eixsts, otherwise create it
   if(self.tabBarController == nil) {
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     self.tabBarController = tabBarController;
   }
   
-  self.tabBarController.viewControllers = @[mixedAdsViewController, self.vc2];
+  self.tabBarController.viewControllers = @[mixedAdsViewController, self.nativeAdvancedViewController];
   
   mixedAdsViewController.tabBarItem.title = @"Mixed Ads View"; // dont use self. since this variable just created in this block
-  self.vc2.tabBarItem.title = @"Second View";
+  self.nativeAdvancedViewController.tabBarItem.title = @"Native Advanced";
   
   // make the Tab Bar Controller the root view controller
   self.window.rootViewController = self.tabBarController;

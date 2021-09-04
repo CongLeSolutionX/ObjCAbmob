@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0050CE26E2F26F004AB2C2 /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0050CD26E2F26F004AB2C2 /* NativeAdView.xib */; };
 		4CBE3DDD26E195B500B16BCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE3DDC26E195B500B16BCF /* AppDelegate.m */; };
 		4CBE3DE326E195B500B16BCF /* MixedAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE3DE226E195B500B16BCF /* MixedAdsViewController.m */; };
 		4CBE3DE626E195B500B16BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBE3DE426E195B500B16BCF /* Main.storyboard */; };
@@ -14,13 +15,14 @@
 		4CBE3DEB26E195B700B16BCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBE3DE926E195B700B16BCF /* LaunchScreen.storyboard */; };
 		4CBE3DEE26E195B700B16BCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE3DED26E195B700B16BCF /* main.m */; };
 		4CBE3DF926E1AE5200B16BCF /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBE3DF826E1AE5200B16BCF /* GoogleMobileAds.xcframework */; };
-		4CE778A326E2A79E00941C79 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE778A226E2A79E00941C79 /* SecondViewController.m */; };
+		4CE778A326E2A79E00941C79 /* NativeAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE778A226E2A79E00941C79 /* NativeAdvanced.m */; };
 		EEC9F11829BCAF6A6F8612F1 /* libPods-ObjCAdmob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D412E75735783359013755B0 /* libPods-ObjCAdmob.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		227046988437B31E122ADE12 /* Pods-ObjCAdmob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCAdmob.debug.xcconfig"; path = "Target Support Files/Pods-ObjCAdmob/Pods-ObjCAdmob.debug.xcconfig"; sourceTree = "<group>"; };
 		24CD2F7CCA6F9B907EF5D019 /* Pods-ObjCAdmob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCAdmob.release.xcconfig"; path = "Target Support Files/Pods-ObjCAdmob/Pods-ObjCAdmob.release.xcconfig"; sourceTree = "<group>"; };
+		4C0050CD26E2F26F004AB2C2 /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		4CBE3DD826E195B500B16BCF /* ObjCAdmob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCAdmob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBE3DDB26E195B500B16BCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CBE3DDC26E195B500B16BCF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,8 +34,8 @@
 		4CBE3DEC26E195B700B16BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CBE3DED26E195B700B16BCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CBE3DF826E1AE5200B16BCF /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
-		4CE778A126E2A79E00941C79 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		4CE778A226E2A79E00941C79 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4CE778A126E2A79E00941C79 /* NativeAdvanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAdvanced.h; sourceTree = "<group>"; };
+		4CE778A226E2A79E00941C79 /* NativeAdvanced.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAdvanced.m; sourceTree = "<group>"; };
 		D412E75735783359013755B0 /* libPods-ObjCAdmob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCAdmob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0050CF26E2F287004AB2C2 /* Native Advanced Ad */ = {
+			isa = PBXGroup;
+			children = (
+				4CE778A126E2A79E00941C79 /* NativeAdvanced.h */,
+				4CE778A226E2A79E00941C79 /* NativeAdvanced.m */,
+				4C0050CD26E2F26F004AB2C2 /* NativeAdView.xib */,
+			);
+			path = "Native Advanced Ad";
+			sourceTree = "<group>";
+		};
+		4C0050D026E2F2A1004AB2C2 /* Mixed Ads */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE3DE126E195B500B16BCF /* MixedAdsViewController.h */,
+				4CBE3DE226E195B500B16BCF /* MixedAdsViewController.m */,
+			);
+			path = "Mixed Ads";
+			sourceTree = "<group>";
+		};
 		4CBE3DCF26E195B500B16BCF = {
 			isa = PBXGroup;
 			children = (
@@ -73,10 +94,8 @@
 			children = (
 				4CBE3DDB26E195B500B16BCF /* AppDelegate.h */,
 				4CBE3DDC26E195B500B16BCF /* AppDelegate.m */,
-				4CBE3DE126E195B500B16BCF /* MixedAdsViewController.h */,
-				4CBE3DE226E195B500B16BCF /* MixedAdsViewController.m */,
-				4CE778A126E2A79E00941C79 /* SecondViewController.h */,
-				4CE778A226E2A79E00941C79 /* SecondViewController.m */,
+				4C0050D026E2F2A1004AB2C2 /* Mixed Ads */,
+				4C0050CF26E2F287004AB2C2 /* Native Advanced Ad */,
 				4CBE3DE426E195B500B16BCF /* Main.storyboard */,
 				4CBE3DE726E195B700B16BCF /* Assets.xcassets */,
 				4CBE3DE926E195B700B16BCF /* LaunchScreen.storyboard */,
@@ -162,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0050CE26E2F26F004AB2C2 /* NativeAdView.xib in Resources */,
 				4CBE3DEB26E195B700B16BCF /* LaunchScreen.storyboard in Resources */,
 				4CBE3DE826E195B700B16BCF /* Assets.xcassets in Resources */,
 				4CBE3DE626E195B500B16BCF /* Main.storyboard in Resources */,
@@ -200,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE778A326E2A79E00941C79 /* SecondViewController.m in Sources */,
+				4CE778A326E2A79E00941C79 /* NativeAdvanced.m in Sources */,
 				4CBE3DE326E195B500B16BCF /* MixedAdsViewController.m in Sources */,
 				4CBE3DDD26E195B500B16BCF /* AppDelegate.m in Sources */,
 				4CBE3DEE26E195B700B16BCF /* main.m in Sources */,

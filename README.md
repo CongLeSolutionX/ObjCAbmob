@@ -1,7 +1,9 @@
 # ObjCAbmob
 A demo app shows how to integrate Google AdMob in Objective-C 
 
-## Steps to integrate Banner ad: 
+## Mixed Ads View Controller
+
+### Steps to integrate Banner ad: 
 
 1. Create a Google Admob account via this [site](https://admob.google.com/home/?gclid=Cj0KCQjw7MGJBhD-ARIsAMZ0eeucLf-48HPMilo0v5rRjU8UXn5drQSRU-GWmHuehL5QEV7AqPK8wioaAhDbEALw_wcB)
 
@@ -65,7 +67,7 @@ Note: Add the `-ObjC` linker flag to **Other Linker Flags** in your project's bu
 14. You might face an error as **"The Google Mobile Ads SDK was initialized without AppMeasurement...."**. The reason is we imported **Google Mobile Ads SDK** via **CocoaPods** and indirectly importing **GoogleAppMeasurement SDK** but does not configure it properly. The fix is very easy: update you **Info.plist** in XCode with a new property `GADIsAdManagerApp` as Boolean with value as 1.
 
 
-## Steps to integrate Interstitial ad: 
+### Steps to integrate Interstitial ad: 
 
 1. Use the current setup made for Banner app
 
@@ -110,7 +112,7 @@ Note: Add the `-ObjC` linker flag to **Other Linker Flags** in your project's bu
 [self createInterstitialAd];
 ```
 
-## Steps to integrate Video ad: 
+### Steps to integrate Video ad: 
 
 1. Use the current project with all setups for Google AdMob
 
@@ -205,3 +207,12 @@ didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
   }
 }
 ```
+
+## Native Advanced Ad View Controller 
+
+1. Follow the guideline in [this documentation](https://developers.google.com/admob/ios/native/advanced) to build the Native Advanced UI View on storyboard. 
+Note: We can use the sample xib and view UI from the sample app **Native Advanced Example** from [this link](https://developers.google.com/admob/ios/native/advanced). If do so, make sure to remove the Top and Bottom Layout Guide on the storyboard
+
+2. Connect all the UI component to the Native Advenced View Controller.
+Download the sample app from 
+
