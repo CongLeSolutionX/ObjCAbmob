@@ -211,10 +211,10 @@ didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
 ## Native Advanced Ad View Controller 
 
 1. Follow the guideline in [this documentation](https://developers.google.com/admob/ios/native/advanced) to build the Native Advanced UI View on storyboard. 
-Note: We can use the sample xib and view UI from the sample app **Native Advanced Example** from [this link](https://developers.google.com/admob/ios/native/advanced). If do so, make sure to remove the Top and Bottom Layout Guide on the storyboard
+Note: We can use the sample xib and view UI from the sample app **Native Advanced Example** from [this link](https://github.com/googleads/googleads-mobile-ios-examples/releases/tag/7.22). If do so, make sure to remove the Top and Bottom Layout Guide on the storyboard
 
-2. Connect all the UI component to the Native Advenced View Controller.
-Download the sample app from 
+2. Connect all the UI components to the **Native Advanced View Controller**.
+Download the sample app named **Native Advanced Example** from [this repo](https://github.com/googleads/googleads-mobile-ios-examples/releases/tag/7.22).
 
 3. Follow the sample app to connect the functionality for each UI view component.
 

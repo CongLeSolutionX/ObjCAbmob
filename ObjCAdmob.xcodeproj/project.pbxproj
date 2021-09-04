@@ -15,7 +15,7 @@
 		4CBE3DEB26E195B700B16BCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBE3DE926E195B700B16BCF /* LaunchScreen.storyboard */; };
 		4CBE3DEE26E195B700B16BCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE3DED26E195B700B16BCF /* main.m */; };
 		4CBE3DF926E1AE5200B16BCF /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBE3DF826E1AE5200B16BCF /* GoogleMobileAds.xcframework */; };
-		4CE778A326E2A79E00941C79 /* NativeAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE778A226E2A79E00941C79 /* NativeAdvanced.m */; };
+		4CE778A326E2A79E00941C79 /* NativeAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE778A226E2A79E00941C79 /* NativeAdvancedViewController.m */; };
 		EEC9F11829BCAF6A6F8612F1 /* libPods-ObjCAdmob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D412E75735783359013755B0 /* libPods-ObjCAdmob.a */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +34,8 @@
 		4CBE3DEC26E195B700B16BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CBE3DED26E195B700B16BCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CBE3DF826E1AE5200B16BCF /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
-		4CE778A126E2A79E00941C79 /* NativeAdvanced.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAdvanced.h; sourceTree = "<group>"; };
-		4CE778A226E2A79E00941C79 /* NativeAdvanced.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAdvanced.m; sourceTree = "<group>"; };
+		4CE778A126E2A79E00941C79 /* NativeAdvancedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAdvancedViewController.h; sourceTree = "<group>"; };
+		4CE778A226E2A79E00941C79 /* NativeAdvancedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAdvancedViewController.m; sourceTree = "<group>"; };
 		D412E75735783359013755B0 /* libPods-ObjCAdmob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCAdmob.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,8 +55,8 @@
 		4C0050CF26E2F287004AB2C2 /* Native Advanced Ad */ = {
 			isa = PBXGroup;
 			children = (
-				4CE778A126E2A79E00941C79 /* NativeAdvanced.h */,
-				4CE778A226E2A79E00941C79 /* NativeAdvanced.m */,
+				4CE778A126E2A79E00941C79 /* NativeAdvancedViewController.h */,
+				4CE778A226E2A79E00941C79 /* NativeAdvancedViewController.m */,
 				4C0050CD26E2F26F004AB2C2 /* NativeAdView.xib */,
 			);
 			path = "Native Advanced Ad";
@@ -220,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE778A326E2A79E00941C79 /* NativeAdvanced.m in Sources */,
+				4CE778A326E2A79E00941C79 /* NativeAdvancedViewController.m in Sources */,
 				4CBE3DE326E195B500B16BCF /* MixedAdsViewController.m in Sources */,
 				4CBE3DDD26E195B500B16BCF /* AppDelegate.m in Sources */,
 				4CBE3DEE26E195B700B16BCF /* main.m in Sources */,

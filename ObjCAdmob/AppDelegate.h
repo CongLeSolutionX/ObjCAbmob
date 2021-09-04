@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NativeAdvanced.h"
+#import "NativeAdvancedViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
-@property (strong, nonatomic) NativeAdvanced *nativeAdvancedViewController;
+@property (strong, nonatomic) NativeAdvancedViewController *nativeAdvancedViewController;
 
 @end
 

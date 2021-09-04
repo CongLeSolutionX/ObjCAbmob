@@ -29,7 +29,7 @@
   
   //check if the 2nd viewcontroller eixsts, otherwise create it
   if(self.nativeAdvancedViewController == nil) {
-    NativeAdvanced *nativeAdvancedViewVC = [storyboard instantiateViewControllerWithIdentifier:@"NativeAdvancedViewController"];
+    NativeAdvancedViewController *nativeAdvancedViewVC = [storyboard instantiateViewControllerWithIdentifier:@"NativeAdvancedViewController"];
     self.nativeAdvancedViewController = nativeAdvancedViewVC;
   }
   

@@ -5,12 +5,12 @@
 //  Created by Cong Le on 9/3/21.
 //
 
-#import "NativeAdvanced.h"
+#import "NativeAdvancedViewController.h"
 
 // Native Advanced ad unit ID for testing.
 static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
-@interface NativeAdvanced () <GADNativeAdLoaderDelegate,
+@interface NativeAdvancedViewController () <GADNativeAdLoaderDelegate,
 GADNativeAdDelegate,
 GADVideoControllerDelegate>
 
@@ -26,7 +26,7 @@ GADVideoControllerDelegate>
 
 @end
 
-@implementation NativeAdvanced
+@implementation NativeAdvancedViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -61,7 +61,7 @@ GADVideoControllerDelegate>
                                                                     metrics:nil
                                                                       views:viewDictionary]];
 }
-- (IBAction)refreshAd:(id)sender {
+- (IBAction)refreshAd:(nullable)sender {
   // Prevent the user to switch button many times
   self.refreshButton.enabled = NO;
   

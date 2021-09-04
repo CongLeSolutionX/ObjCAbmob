@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="21.739130434782609" y="61.141304347826093"/>
         </scene>
-        <!--Native Advanced-->
+        <!--Native Advanced View Controller-->
         <scene sceneID="gV1-4R-h8H">
             <objects>
-                <viewController storyboardIdentifier="NativeAdvancedViewController" id="iTz-dq-RVy" customClass="NativeAdvanced" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NativeAdvancedViewController" id="iTz-dq-RVy" customClass="NativeAdvancedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X4y-Jd-MU7" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

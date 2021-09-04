@@ -18,7 +18,6 @@
 
 - (IBAction)showInterstitialAd:(id)sender;
 
-
 - (IBAction)showRewardedVideoAd:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *rewardLabel;
