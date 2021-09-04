@@ -64,15 +64,34 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
   // Prevent the user to switch button many times
   self.refreshButton.enabled = NO;
   
-  // Default the video ad play in muted
+  /// Documentation for UI component options for ad
+  /// https://developers.google.com/admob/ios/native/options
+  
+  // NativeAdImageAdLoaderOptions
+  GADNativeAdImageAdLoaderOptions *adViewImageOptions = [[GADNativeAdImageAdLoaderOptions alloc] init];
+  adViewImageOptions.shouldRequestMultipleImages = YES; // if available, load a series of ad images
+  
+  // Video Options
+  /// Default the video ad play in muted
   GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
   videoOptions.startMuted = self.startMutedSwitch.on;
+  
+  // NativeAdViewAdOptions
+  GADNativeAdViewAdOptions *adViewOptions = [[GADNativeAdViewAdOptions alloc] init];
+  adViewOptions.preferredAdChoicesPosition = GADAdChoicesPositionBottomLeftCorner;
+  
+  // GADMultipleAdsAdLoaderOptions
+  // TODO: Need to present all 5 ads in 1 request
+  GADMultipleAdsAdLoaderOptions *multipleAdsAdLoaderOptions = [[GADMultipleAdsAdLoaderOptions alloc] init];
+  multipleAdsAdLoaderOptions.numberOfAds = 6; // The default is loading 1 ad per request. The maxinum is 5 ads per request
   
   // Loads a native ad
   self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:NativeAdvenacedTestAdUnit
                                      rootViewController:self
                                                 adTypes:@[kGADAdLoaderAdTypeNative]
-                                                options:@[videoOptions]];
+                                                options:@[adViewImageOptions,
+                                                          videoOptions,
+                                                          adViewOptions]];
   
   self.adLoader.delegate = self;
   [self.adLoader loadRequest:[GADRequest request]];
@@ -176,7 +195,6 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
   // required to make the ad clickable.
   // Note: this should always be done after populating the ad views.
   nativeAdViewToPresent.nativeAd = nativeAd;
-  
 }
 
 #pragma mark - GADVideoControllerDelegate implementation -

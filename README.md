@@ -218,3 +218,4 @@ Download the sample app named **Native Advanced Example** from [this repo](https
 
 3. Follow the sample app to connect the functionality for each UI view component.
 
+4. Use [this documentation](https://developers.google.com/admob/ios/native/options) to add more options/coinfigurations for native ad.
