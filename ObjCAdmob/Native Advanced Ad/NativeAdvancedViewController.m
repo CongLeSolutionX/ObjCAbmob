@@ -18,7 +18,7 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
 @property(nonatomic, strong) GADAdLoader *adLoader;
 
 /// The native ad view that is being presented.
-@property(nonatomic, strong) GADNativeAdView *nativeAdView;
+@property(nonatomic, strong) GADNativeAdView *nativeAdViewPresented;
 
 /// The height constraint applied to the ad view, where necessary.
 @property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
@@ -42,20 +42,20 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
 #pragma mark - Helper methods -
 -(void)setAdView:(GADNativeAdView *) view {
   // Remove previous ad view
-  [self.nativeAdView removeFromSuperview];
-  self.nativeAdView = view;
+  [self.nativeAdViewPresented removeFromSuperview];
+  self.nativeAdViewPresented = view;
   
   // Add new ad view and set constraints to fill its container.
   [self.nativeAdPlaceHolder addSubview:view];
-  [self.nativeAdView setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [self.nativeAdViewPresented setTranslatesAutoresizingMaskIntoConstraints:NO];
   
-  NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_nativeAdView);
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_nativeAdView]|"
+  NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_nativeAdViewPresented);
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_nativeAdViewPresented]|"
                                                                     options:0
                                                                     metrics:nil
                                                                       views:viewDictionary]];
   
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_nativeAdView]|"
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_nativeAdViewPresented]|"
                                                                     options:0
                                                                     metrics:nil
                                                                       views:viewDictionary]];
@@ -79,6 +79,22 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
   self.videoStatusLabel.text = @"";
   
 }
+/// Gets an image representing the number of stars. Returns nil if rating is
+/// less than 3.5 stars.
+- (UIImage *)imageForStars:(NSDecimalNumber *)numberOfStars {
+  double starRating = numberOfStars.doubleValue;
+  if (starRating >= 5) {
+    return [UIImage imageNamed:@"stars_5"];
+  } else if (starRating >= 4.5) {
+    return [UIImage imageNamed:@"stars_4_5"];
+  } else if (starRating >= 4) {
+    return [UIImage imageNamed:@"stars_4"];
+  } else if (starRating >= 3.5) {
+    return [UIImage imageNamed:@"stars_3_5"];
+  } else {
+    return nil;
+  }
+}
 
 #pragma mark -  GADAdLoaderDelegate implementation -
 
@@ -91,7 +107,7 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
 - (void)adLoader:(nonnull GADAdLoader *)adLoader didReceiveNativeAd:(nonnull GADNativeAd *)nativeAd {
   self.refreshButton.enabled = YES;
   
-  GADNativeAdView *nativeAdView = self.nativeAdView;
+  GADNativeAdView *nativeAdViewToPresent = self.nativeAdViewPresented;
   
   // Deactivate the height constraint that was set when the previous video ad loaded.
   self.heightConstraint.active = NO;
@@ -101,17 +117,17 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
   
   // Populate the native ad view with the native ad assets.
   // The headline and mediaContent are guaranteed to be present in every native ad.
-  ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
-  nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
+  ((UILabel *)nativeAdViewToPresent.headlineView).text = nativeAd.headline;
+  nativeAdViewToPresent.mediaView.mediaContent = nativeAd.mediaContent;
   
   // This app uses a fixed width for the GADMediaView and changes its height
   // to match the aspect ratio of the media content it displays.
   if (nativeAd.mediaContent.aspectRatio > 0) {
     self.heightConstraint =
-    [NSLayoutConstraint constraintWithItem:nativeAdView.mediaView
+    [NSLayoutConstraint constraintWithItem:nativeAdViewToPresent.mediaView
                                  attribute:NSLayoutAttributeHeight
                                  relatedBy:NSLayoutRelationEqual
-                                    toItem:nativeAdView.mediaView
+                                    toItem:nativeAdViewToPresent.mediaView
                                  attribute:NSLayoutAttributeWidth
                                 multiplier:(1 / nativeAd.mediaContent.aspectRatio)
                                   constant:0];
@@ -130,36 +146,36 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
   
   // These assets are not guaranteed to be present. Check that they are before
   // showing or hiding them.
-  ((UILabel *)nativeAdView.bodyView).text = nativeAd.body;
-  nativeAdView.bodyView.hidden = nativeAd.body ? NO : YES;
+  ((UILabel *)nativeAdViewToPresent.bodyView).text = nativeAd.body;
+  nativeAdViewToPresent.bodyView.hidden = nativeAd.body ? NO : YES;
   
-  [((UIButton *)nativeAdView.callToActionView) setTitle:nativeAd.callToAction
+  [((UIButton *)nativeAdViewToPresent.callToActionView) setTitle:nativeAd.callToAction
                                                forState:UIControlStateNormal];
-  nativeAdView.callToActionView.hidden = nativeAd.callToAction ? NO : YES;
+  nativeAdViewToPresent.callToActionView.hidden = nativeAd.callToAction ? NO : YES;
   
-  ((UIImageView *)nativeAdView.iconView).image = nativeAd.icon.image;
-  nativeAdView.iconView.hidden = nativeAd.icon ? NO : YES;
+  ((UIImageView *)nativeAdViewToPresent.iconView).image = nativeAd.icon.image;
+  nativeAdViewToPresent.iconView.hidden = nativeAd.icon ? NO : YES;
   
-  //  ((UIImageView *)nativeAdView.starRatingView).image = [self imageForStars:nativeAd.starRating];
-  //  nativeAdView.starRatingView.hidden = nativeAd.starRating ? NO : YES;
+  ((UIImageView *)nativeAdViewToPresent.starRatingView).image = [self imageForStars:nativeAd.starRating];
+  nativeAdViewToPresent.starRatingView.hidden = nativeAd.starRating ? NO : YES;
   
-  ((UILabel *)nativeAdView.storeView).text = nativeAd.store;
-  nativeAdView.storeView.hidden = nativeAd.store ? NO : YES;
+  ((UILabel *)nativeAdViewToPresent.storeView).text = nativeAd.store;
+  nativeAdViewToPresent.storeView.hidden = nativeAd.store ? NO : YES;
   
-  ((UILabel *)nativeAdView.priceView).text = nativeAd.price;
-  nativeAdView.priceView.hidden = nativeAd.price ? NO : YES;
+  ((UILabel *)nativeAdViewToPresent.priceView).text = nativeAd.price;
+  nativeAdViewToPresent.priceView.hidden = nativeAd.price ? NO : YES;
   
-  ((UILabel *)nativeAdView.advertiserView).text = nativeAd.advertiser;
-  nativeAdView.advertiserView.hidden = nativeAd.advertiser ? NO : YES;
+  ((UILabel *)nativeAdViewToPresent.advertiserView).text = nativeAd.advertiser;
+  nativeAdViewToPresent.advertiserView.hidden = nativeAd.advertiser ? NO : YES;
   
   // In order for the SDK to process touch events properly, user interaction
   // should be disabled.
-  nativeAdView.callToActionView.userInteractionEnabled = NO;
+  nativeAdViewToPresent.callToActionView.userInteractionEnabled = NO;
   
   // Associate the native ad view with the native ad object. This is
   // required to make the ad clickable.
   // Note: this should always be done after populating the ad views.
-  nativeAdView.nativeAd = nativeAd;
+  nativeAdViewToPresent.nativeAd = nativeAd;
   
 }
 

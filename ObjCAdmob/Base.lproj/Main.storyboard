@@ -98,20 +98,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Native Ads Example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTR-ji-mud">
-                                                <rect key="frame" x="8" y="8.0000000000000018" width="398" height="20.666666666666671"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" systemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nN7-ZY-IXv" userLabel="Placeholder View">
-                                                <rect key="frame" x="8" y="48.666666666666657" width="398" height="300"/>
+                                                <rect key="frame" x="8" y="49" width="398" height="300"/>
                                                 <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" placeholder="YES" id="dRm-6n-Z7Y"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-Fw-UNX">
-                                                <rect key="frame" x="10" y="358.66666666666669" width="394" height="20.666666666666686"/>
+                                                <rect key="frame" x="10" y="359" width="394" height="20.333333333333314"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="VhZ-8p-pLd"/>
                                                 </constraints>
@@ -156,6 +156,9 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-QX-QL1">
                                                 <rect key="frame" x="8" y="439.33333333333331" width="398" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="Tz9-xt-cys"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Refresh Ad"/>
                                                 <connections>
@@ -164,6 +167,9 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crd-z0-TKr">
                                                 <rect key="frame" x="8" y="482.33333333333331" width="398" height="20.666666666666686"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20.666666666666686" id="srg-14-x1t"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -171,6 +177,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="LlL-Fw-UNX" firstAttribute="top" secondItem="nN7-ZY-IXv" secondAttribute="bottom" constant="10" id="0YH-sJ-aj7"/>
                                             <constraint firstAttribute="trailing" secondItem="crd-z0-TKr" secondAttribute="trailing" constant="8" id="4a8-FK-mw2"/>
                                             <constraint firstItem="dTR-ji-mud" firstAttribute="leading" secondItem="ky2-ii-1T5" secondAttribute="leading" constant="8" id="8kO-cs-VuP"/>
                                             <constraint firstAttribute="trailing" secondItem="fRl-hh-RES" secondAttribute="trailing" constant="8" id="A00-pv-gDG"/>
@@ -178,13 +185,12 @@
                                             <constraint firstItem="crd-z0-TKr" firstAttribute="top" secondItem="Fbu-QX-QL1" secondAttribute="bottom" constant="10" id="H3j-RW-zWf"/>
                                             <constraint firstItem="fRl-hh-RES" firstAttribute="top" secondItem="LlL-Fw-UNX" secondAttribute="bottom" constant="10" id="JPR-ax-qrB"/>
                                             <constraint firstItem="nN7-ZY-IXv" firstAttribute="leading" secondItem="ky2-ii-1T5" secondAttribute="leading" constant="8" id="JSw-Py-2kV"/>
-                                            <constraint firstItem="nN7-ZY-IXv" firstAttribute="centerX" secondItem="ky2-ii-1T5" secondAttribute="centerX" id="KIT-ff-5XM"/>
                                             <constraint firstItem="Fbu-QX-QL1" firstAttribute="leading" secondItem="ky2-ii-1T5" secondAttribute="leading" constant="8" id="RFb-yC-JjG"/>
-                                            <constraint firstItem="LlL-Fw-UNX" firstAttribute="top" secondItem="nN7-ZY-IXv" secondAttribute="bottom" constant="10" id="SEz-YO-6vB"/>
                                             <constraint firstItem="nN7-ZY-IXv" firstAttribute="top" secondItem="dTR-ji-mud" secondAttribute="bottom" constant="20" id="WZv-dr-WYV"/>
                                             <constraint firstAttribute="trailing" secondItem="nN7-ZY-IXv" secondAttribute="trailing" constant="8" id="b6n-ey-n2C"/>
                                             <constraint firstItem="dTR-ji-mud" firstAttribute="top" secondItem="ky2-ii-1T5" secondAttribute="top" constant="8" id="cB9-Kh-LVd"/>
                                             <constraint firstAttribute="height" constant="600" id="cWq-mX-7PJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="crd-z0-TKr" secondAttribute="bottom" constant="97.000000000000057" id="d5c-ds-rcM"/>
                                             <constraint firstAttribute="trailing" secondItem="LlL-Fw-UNX" secondAttribute="trailing" constant="10" id="jhR-zQ-7p3"/>
                                             <constraint firstItem="Fbu-QX-QL1" firstAttribute="top" secondItem="fRl-hh-RES" secondAttribute="bottom" constant="10" id="kPj-P0-AHr"/>
                                             <constraint firstAttribute="trailing" secondItem="dTR-ji-mud" secondAttribute="trailing" constant="8" id="lcU-pg-hXp"/>
