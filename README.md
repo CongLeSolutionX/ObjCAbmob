@@ -216,3 +216,5 @@ Note: We can use the sample xib and view UI from the sample app **Native Advance
 2. Connect all the UI component to the Native Advenced View Controller.
 Download the sample app from 
 
+3. Follow the sample app to connect the functionality for each UI view component.
+
