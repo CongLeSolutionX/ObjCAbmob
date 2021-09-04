@@ -10,9 +10,8 @@
 // Native Advanced ad unit ID for testing.
 static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544/3986624511";
 
-@interface NativeAdvancedViewController () <GADNativeAdLoaderDelegate,
-GADNativeAdDelegate,
-GADVideoControllerDelegate>
+// Extension of NativeAdvancedViewController and conform to protocols
+@interface NativeAdvancedViewController () <GADNativeAdLoaderDelegate, GADNativeAdDelegate, GADVideoControllerDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading
 /// process.

@@ -15,12 +15,12 @@ static NSString *const InterstitialTestAdUnit = @"ca-app-pub-3940256099942544/44
 static NSString *const RewardedTestAdUnit = @"ca-app-pub-3940256099942544/1712485313";
 
 #pragma mark - Extension -
-// Extension of ViewController and conform to protocol GADBannerViewDelegate
+// Extension of MixedAdsViewController and conform to protocol GADBannerViewDelegate
 @interface MixedAdsViewController() <GADBannerViewDelegate>
 
 @end
 
-// Extension of ViewController and conform to protocol GADFullScreenContentDelegate
+// Extension of MixedAdsViewController and conform to protocol GADFullScreenContentDelegate
 @interface MixedAdsViewController () <GADFullScreenContentDelegate>
 
 @property (strong, nonatomic) GADRewardedAd *rewardedAd;
