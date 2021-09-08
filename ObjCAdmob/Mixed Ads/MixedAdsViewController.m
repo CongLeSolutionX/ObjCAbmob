@@ -99,15 +99,26 @@ static NSString *const RewardedTestAdUnit = @"ca-app-pub-3940256099942544/171248
 
 #pragma mark - Helper methods for Rewarded Video Ad -
 - (IBAction)showRewardedVideoAd:(id)sender {
-  if (self.rewardedAd) {
-    [self.rewardedAd presentFromRootViewController:self
-                          userDidEarnRewardHandler:^{
-      self->score += 100;
-      self.rewardLabel.text = [NSString stringWithFormat:@"%i", self->score];
-    }];
-  } else {
-    NSLog(@"Rewarded Video Ad wasn't ready");
-  }
+    if (self.rewardedAd) {
+        [self.rewardedAd presentFromRootViewController:self
+                              userDidEarnRewardHandler:^{
+            self->score += 100;
+            self.rewardLabel.text = [NSString stringWithFormat:@"%i", self->score];
+            // we can use the following logic to handle the callback form the rewared video
+            //        GADAdReward *reward = self.rewardedAd.adReward;
+            //        NSString *rewardMessage = [NSString
+            //                                   stringWithFormat:@"Reward received with currency %@, amount %lf",
+            //                                   reward.type, [reward.amount doubleValue]];
+            //
+            //        NSLog(@"%@", rewardMessage);
+            //
+            //        // Reward the user for watching the video
+            //        self->score = [reward.amount integerValue];
+            //        self.rewardLabel.text = [NSString stringWithFormat:@"%ld", self->score];
+        }];
+    } else {
+        NSLog(@"Rewarded Video Ad wasn't ready");
+    }
 }
 
 /// By default, the Rewarded Video  ad only load once per request
