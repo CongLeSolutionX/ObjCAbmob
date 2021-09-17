@@ -1,9 +1,13 @@
 # ObjCAbmob
-A demo app shows how to integrate Google AdMob in Objective-C 
+A demo app shows how to integrate Google AdMob in Objective-C
+
+I try to follow theNYTimes Objective-C Style Guide:
+https://github.com/nytimes/objective-c-style-guide
+
 
 ## Mixed Ads View Controller
 
-### Steps to integrate Banner ad: 
+### Steps to integrate Banner ad:
 
 1. Create a Google Admob account via this [site](https://admob.google.com/home/?gclid=Cj0KCQjw7MGJBhD-ARIsAMZ0eeucLf-48HPMilo0v5rRjU8UXn5drQSRU-GWmHuehL5QEV7AqPK8wioaAhDbEALw_wcB)
 
