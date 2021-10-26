@@ -29,7 +29,6 @@ static NSString *const NativeAdvenacedTestAdUnit = @"ca-app-pub-3940256099942544
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.systemGreenColor;
     
     [self setAdView:[[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil]
      .firstObject];
